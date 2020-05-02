@@ -1,10 +1,9 @@
-import {sudoku} from './lib/sudoku.js'
-import React from 'react';
+import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
 import {createMuiTheme, MuiThemeProvider} from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import {Block} from "./Block";
-import {GridList, GridListTile} from "@material-ui/core";
+import {App} from "./App";
+import {DevTimestamp} from "./devTimestamp";
 
 const darkTheme = createMuiTheme({
     palette: {
@@ -12,48 +11,11 @@ const darkTheme = createMuiTheme({
     },
 });
 
-const toBlocks = (board: [[string], [string],[string],[string],[string],[string],[string],[string],[string]]) => {
-    let blocks = [];
-    let currArr0, currArr1, currArr2;
-    for (let i = 0; i < 9; i++) {
-        if (i % 3 == 0) {
-            currArr0 = [];
-            currArr1 = [];
-            currArr2 = [];
-        }
-        for (let j = 0; j < 9; j += 3) {
-            const arr = (j < 3) ? currArr0 : (j < 6) ? currArr1 : currArr2;
-            arr.push(board[i].slice(j, j + 3))
-        }
-        if (i % 3 == 0) {
-            blocks.push(currArr0)
-            blocks.push(currArr1)
-            blocks.push(currArr2)
-        }
-    }
-    return blocks;
-}
-
-const App = () => {
-    const boardString = sudoku.generate("easy");
-    const boardStringToGrid = sudoku.board_string_to_grid(boardString);
-    console.log(boardString);
-    const blocks = toBlocks(boardStringToGrid);
-    console.log(blocks)
-    //state currNum
-    return <GridList cols={3}>
-        {
-            blocks.map(block => {
-                return <GridListTile ><Block block={block}/></GridListTile>
-            })
-        }
-    </GridList>;
-};
-
 ReactDOM.render(
     <MuiThemeProvider theme={darkTheme}>
         <CssBaseline/>
         <App/>
+        <DevTimestamp/>
     </MuiThemeProvider>, document.getElementById('root')
 );
 
