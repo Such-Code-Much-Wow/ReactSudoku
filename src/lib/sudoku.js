@@ -570,7 +570,7 @@ function init() {
     };
 
     sudoku._get_all_units = function (rows, cols) {
-        /* Return a list of all units (rows, cols, boxes)
+        /* Return a list of all units (block, cols, boxes)
         */
         var units = [];
 
