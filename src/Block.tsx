@@ -12,8 +12,8 @@ export const Block = ({block}: Props) => {
     return (<div>{
             block.map((rowInBlock) => {
                 return (
-                    <div>{
-                        rowInBlock.map((cell, index)=>{
+                    <div style={{display: 'flex', flexDirection: 'row'}}>{
+                        rowInBlock.map((cell)=>{
                             return <Cell value={cell} key={count++}/>
                         })
                     }</div>

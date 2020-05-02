@@ -1,10 +1,10 @@
 import {sudoku} from './lib/sudoku.js'
-import React, {useState} from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import {createMuiTheme, MuiThemeProvider} from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import {Block} from "./Block";
-import {Grid, GridList} from "@material-ui/core";
+import {GridList, GridListTile} from "@material-ui/core";
 
 const darkTheme = createMuiTheme({
     palette: {
@@ -41,13 +41,13 @@ const App = () => {
     const blocks = toBlocks(boardStringToGrid);
     console.log(blocks)
     //state currNum
-    return <div >
+    return <GridList cols={3}>
         {
             blocks.map(block => {
-                return <div><Block block={block}/><hr/></div>
+                return <GridListTile ><Block block={block}/></GridListTile>
             })
         }
-    </div>;
+    </GridList>;
 };
 
 ReactDOM.render(
