@@ -33,16 +33,9 @@
     "styled-components": "^5.0.1",
     "ts-loader": "^6.2.1",
     "typescript": "^3.8.3",
-    "uuidv4": "^6.0.6",
     "webpack": "^4.42.0",
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.10.3"
-  },
-  "Tdependencies": {
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "styled-components": "^5.0.1",
-    "uuidv4": "^6.0.6"
   },
   "dependencies": {
     "@material-ui/core": "^4.9.11",
